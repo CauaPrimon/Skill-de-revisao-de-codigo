@@ -47,6 +47,8 @@ ls package.json pyproject.toml .eslintrc* .flake8 Makefile 2>/dev/null
 - Guarde a saída bruta de cada comando executado (vai ser citada no relatório).
 
 ### 3. Analisar cada achado do diff
+Além de bugs e comportamento incorreto, procure também por **lógica duplicada dentro do próprio diff**: dois ou mais blocos que fazem cálculos/validações quase idênticos (mesma estrutura de loop, condição ou fórmula, mudando só um valor). Isso conta como achado de categoria `preferência` — aponte os dois trechos (arquivo:linha de cada um) e sugira extrair a parte repetida em uma função, explicando o problema concreto que isso evita (ex: corrigir um bug em uma cópia e esquecer a outra).
+
 Para cada problema encontrado nos trechos alterados, registre:
 - **Arquivo e linha** (ex: `validador/index.html:47`).
 - **O que está errado**, em uma frase objetiva.
